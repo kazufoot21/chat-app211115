@@ -34,7 +34,8 @@ const theme = createTheme();
 export default function SignIn({setName}) {
     const [disabled, setDisabled] = useState(true);
     const [string, setString] = useState('');
-    console.log({string, disabled});
+    const [isComposed, setIsComposed] = useState(false);
+    // console.log({string, disabled, isComposed});
 
     useEffect(() => {
         const disabled = string === '';
@@ -80,7 +81,14 @@ export default function SignIn({setName}) {
                             label="Your Nickname"
                             name="name"
                             autoFocus
+                            onCompositionStart={() => {
+                                setIsComposed(true);
+                            }}
+                            onCompositionEnd={() => {
+                                setIsComposed(false);
+                            }}
                             onKeyDown={(e) => {
+                                if (isComposed) return;
                                 if (e.key === 'Enter') {
                                     setName(e.target.value);
                                     e.preventDefault();

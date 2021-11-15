@@ -80,6 +80,12 @@ export default function SignIn({setName}) {
                             label="Your Nickname"
                             name="name"
                             autoFocus
+                            onKeyDown={(e) => {
+                                if (e.key === 'Enter') {
+                                    setName(e.target.value);
+                                    e.preventDefault();
+                                }
+                            }}
                             onChange={(e) => {
                                 setString(e.target.value);
                             }}

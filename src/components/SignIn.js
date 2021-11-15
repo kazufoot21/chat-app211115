@@ -45,10 +45,10 @@ export default function SignIn({setName}) {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
         // eslint-disable-next-line no-console
-        console.log({
-            email: data.get('email'),
-            password: data.get('password'),
-        });
+        // console.log({
+        //     email: data.get('email'),
+        //     password: data.get('password'),
+        // });
     };
 
     return (
@@ -86,11 +86,14 @@ export default function SignIn({setName}) {
                         />
 
                         <Button
-                            type="submit"
+                            type="button"
                             fullWidth
                             variant="contained"
                             sx={{mt: 3, mb: 2}}
                             disabled={disabled}
+                            onClick={() => {
+                                setName(string);
+                            }}
                         >
                             START
                         </Button>

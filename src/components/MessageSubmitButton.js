@@ -10,7 +10,7 @@ export const MessageSubmitButton = ({name, setText, text, inputEl}) => {
         <IconButton
             disabled={text === ''}
             onClick={() => {
-                pushMessage({name: 'KAZ', text});
+                pushMessage({name, text});
                 setText('');
                 inputEl.current.focus();
             }}

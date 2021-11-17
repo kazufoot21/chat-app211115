@@ -21,7 +21,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig); //初期化
 
 const database = firebase.database();
-const messagesRef = database.ref('messages'); //どういった名前空間にぶら下げるか指示
+export const messagesRef = database.ref('messages'); //どういった名前空間にぶら下げるか指示
 
 export const pushMessage = ({name, text}) => {
     messagesRef.push({name, text});

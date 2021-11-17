@@ -3,6 +3,7 @@ import {makeStyles} from '@mui/styles';
 import {Grid, Avatar} from '@mui/material';
 import {gravatarPath} from '../gravatar';
 import {MessageField} from './MessageField';
+import {MessageSubmitButton} from './MessageSubmitButton';
 
 const useStyles = makeStyles({
     root: {
@@ -26,7 +27,11 @@ const MessageInputField = ({name}) => {
                     <MessageField name={name} setText={setText} text={text} />
                 </Grid>
                 <Grid item xs={1}>
-                    button
+                    <MessageSubmitButton
+                        name={name}
+                        setText={setText}
+                        text={text}
+                    />
                 </Grid>
             </Grid>
         </div>

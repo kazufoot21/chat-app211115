@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
 import {makeStyles} from '@mui/styles';
 import {Grid, Avatar} from '@mui/material';
 import {gravatarPath} from '../gravatar';
@@ -13,6 +13,7 @@ const useStyles = makeStyles({
 });
 
 const MessageInputField = ({name}) => {
+    const inputEl = useRef(null);
     const [text, setText] = useState('');
     const classes = useStyles();
     const avatarPath = gravatarPath(name); //'kazufoot21@outlook.jp'
@@ -31,6 +32,7 @@ const MessageInputField = ({name}) => {
                         name={name}
                         setText={setText}
                         text={text}
+                        inputEl={inputEl}
                     />
                 </Grid>
             </Grid>
